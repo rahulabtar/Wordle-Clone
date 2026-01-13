@@ -18,7 +18,7 @@ The program utilized the Model View Controller method to oranize itself and its 
   <table>
     <tr>
       <td>
-        <a href="Assets/WordlePres.pdf.pdf">
+        <a href="Assets/WordlePres.pdf">
           <img src="Assets/wordle.png" width="450">
         </a>
       </td>
