@@ -1,5 +1,6 @@
 from model.board import board
 from model.player import player
+from pathlib import Path
 import random 
 class game:
     """This class represents the rules and logic to the game, along with process such as getting and grading words
@@ -23,7 +24,8 @@ class game:
             words_to_guess (list): A list of all the words in the text file of length size. Ex: Size = 5, words will be 5 letters long
         """
         words_to_guess = []
-        with open('1-1000.txt','r') as file:
+        word_list = Path(__file__).resolve().parent.parent / '1-1000.txt'
+        with word_list.open(encoding='utf-8') as file:
             for line in file:
                 word = line.strip('\n')
                 if len(word) == self.size:
@@ -39,9 +41,8 @@ class game:
         Returns:
             word (str): The word the user has to guess of size 
         """
-        index = random.randint(1,len(words_to_guess)) #random module used to randomly chose word
-        self.word_to_guess = words_to_guess[index]
-        return words_to_guess[index]
+        self.word_to_guess = random.choice(words_to_guess)
+        return self.word_to_guess
 
 
     def check_win(self,graded_word):
